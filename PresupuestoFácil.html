@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Crear Presupuesto Online Gratis | PresupuestoFácil</title>
+<meta name="description" content="Prepara presupuestos profesionales para tu negocio de autónomo en España: añade servicios, calcula el IVA y guarda el documento en PDF. Gratis, sin registro y sin salir de tu navegador.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1d5fd1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Crear Presupuesto Online Gratis | PresupuestoFácil">
+<meta property="og:description" content="Genera presupuestos claros para tus clientes, calcula el IVA automáticamente y guarda el resultado en PDF. Sin registro y sin enviar tus datos a ningún servidor.">
+<meta property="og:locale" content="es_ES">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d5fd1'/%3E%3Cpath d='M18 14h20l10 10v26H18z' fill='%23fff'/%3E%3Cpath d='M38 14v10h10' fill='%23c9dbff'/%3E%3Cpath d='M24 32h18M24 38h18M24 44h10' stroke='%231d5fd1' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<!-- Datos estructurados: preguntas frecuentes (coinciden con el texto visible de la página) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "¿PresupuestoFácil es gratis?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La herramienta es gratuita y no pide registro ni inicio de sesión."}},
+    {"@type": "Question", "name": "¿Se envían mis datos a algún servidor?", "acceptedAnswer": {"@type": "Answer", "text": "No. Todo se calcula y se muestra en tu navegador. Esta versión no incluye analítica, seguimiento ni cookies publicitarias."}},
+    {"@type": "Question", "name": "¿Cómo guardo el presupuesto en PDF?", "acceptedAnswer": {"@type": "Answer", "text": "Pulsa «Imprimir / Guardar PDF» y, en la ventana de impresión del navegador, elige «Guardar como PDF» como destino."}},
+    {"@type": "Question", "name": "¿Qué tipo de IVA debo elegir?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de tu actividad y de la operación concreta. La herramienta permite elegir varios tipos o escribir otro porcentaje, pero no decide por ti. Consulta con tu gestor o con la Agencia Tributaria."}},
+    {"@type": "Question", "name": "¿Cómo funciona la retención de IRPF?", "acceptedAnswer": {"@type": "Answer", "text": "Es opcional y empieza en «Sin retención». Si eliges un porcentaje, se calcula sobre la base imponible (antes del IVA) y se resta del total. Con una base de 1.000 €, IVA del 21 % y retención del 15 %, el total a pagar es 1.060 €."}},
+    {"@type": "Question", "name": "¿Un presupuesto es lo mismo que una factura?", "acceptedAnswer": {"@type": "Answer", "text": "No. El presupuesto es una oferta previa al trabajo; la factura se emite después y tiene sus propios requisitos."}},
+    {"@type": "Question", "name": "¿Puedo guardar mis datos para la próxima vez?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, de forma opcional: puedes activar un borrador local que se guarda solo en este navegador. No lo actives en ordenadores compartidos."}}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#f4f7fb; --card:#ffffff; --text:#1b2433; --muted:#5b6678; --line:#dfe5ee;
+    --primary:#1d5fd1; --primary-d:#164aa6; --primary-soft:#e8f0fe;
+    --danger:#c0262d; --danger-soft:#fdecec; --ok:#0b8f63;
+    --radius:14px; --shadow:0 1px 2px rgba(20,35,60,.06), 0 6px 20px rgba(20,35,60,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-text-size-adjust:100%}
+  [hidden]{display:none!important}
+  a{color:var(--primary)}
+  .container{max-width:1000px;margin:0 auto;padding:0 18px}
+  .skip{position:absolute;left:-999px;top:8px;background:#fff;padding:8px 12px;border-radius:8px;z-index:50}
+  .skip:focus{left:8px}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* Cabecera y logotipo */
+  .site-header{background:#fff;border-bottom:1px solid var(--line)}
+  .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding-top:12px;padding-bottom:12px}
+  .logo{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;color:var(--text);text-decoration:none;display:inline-flex;align-items:center;gap:9px}
+  .logo-mark{width:30px;height:30px;border-radius:8px;background:var(--primary);display:inline-block;position:relative}
+  .logo-mark::after{content:"";position:absolute;left:8px;top:7px;width:14px;height:16px;background:#fff;border-radius:2px;
+    clip-path:polygon(0 0,70% 0,100% 30%,100% 100%,0 100%)}
+  .logo b{color:var(--primary)}
+  .nav{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:.95rem}
+  .nav a{color:var(--muted);text-decoration:none;padding:4px 0}
+  .nav a:hover{color:var(--primary)}
+
+  /* Portada */
+  .hero{padding:34px 0 8px}
+  .hero h1{font-size:clamp(1.7rem,4.5vw,2.5rem);line-height:1.15;margin:0 0 12px;letter-spacing:-.02em}
+  .hero p{max-width:720px;color:var(--muted);font-size:1.08rem;margin:0 0 14px}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+  .badges li{background:var(--primary-soft);color:var(--primary-d);border-radius:999px;padding:5px 12px;font-size:.88rem;font-weight:600}
+
+  /* Tarjetas y formulario */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;margin:18px 0}
+  .card h2{margin:0 0 4px;font-size:1.2rem}
+  .card .hint{margin:0 0 14px;color:var(--muted);font-size:.92rem}
+  .step{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;font-size:.85rem;margin-right:8px;vertical-align:1px}
+  .grid{display:grid;gap:14px;grid-template-columns:1fr}
+  @media (min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}.grid.c3{grid-template-columns:repeat(3,1fr)}.span2{grid-column:span 2}}
+  .f{display:flex;flex-direction:column;gap:5px;min-width:0}
+  label,.lbl{font-size:.9rem;font-weight:600}
+  .opt{font-weight:400;color:var(--muted)}
+  input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+    width:100%;font:inherit;color:var(--text);background:#fff;border:1px solid #c5cedc;border-radius:10px;padding:10px 12px;min-height:44px}
+  textarea{resize:vertical}
+  input:focus,select:focus,textarea:focus,button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #9bbcf7;outline-offset:1px;border-color:var(--primary)}
+  input[aria-invalid=true],select[aria-invalid=true],textarea[aria-invalid=true]{border-color:var(--danger);background:#fffafa}
+  .err{margin:0;color:var(--danger);font-size:.85rem;min-height:0}
+  .err:empty{display:none}
+  .help{margin:0;color:var(--muted);font-size:.85rem}
+
+  /* Líneas de servicios */
+  .line{display:grid;gap:10px;grid-template-columns:1fr 1fr;padding:14px;margin-bottom:12px;border:1px solid var(--line);border-radius:12px;background:#fbfcfe}
+  .line .f-desc{grid-column:1/-1}
+  .line .f-total{justify-content:flex-end}
+  .line output{display:block;font-weight:700;padding:10px 0;font-variant-numeric:tabular-nums}
+  .line .btn-del{grid-column:1/-1}
+  .lines-head{display:none}
+  @media (min-width:820px){
+    .lines-head,.line{grid-template-columns:minmax(0,1fr) 92px 130px 120px 44px;align-items:start}
+    .lines-head{display:grid;gap:10px;padding:0 14px 6px;font-size:.8rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+    .lines-head span:nth-child(n+2){text-align:left}
+    .line{padding:10px 14px}
+    .line .f-desc{grid-column:auto}
+    .line .f label,.line .f .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    .line .btn-del{grid-column:auto;padding:0;width:44px}
+    .line .btn-del .t-del{display:none}
+    .line output{padding:10px 0}
+  }
+
+  /* Botones */
+  .btn{font:inherit;font-weight:700;cursor:pointer;border-radius:10px;padding:11px 18px;min-height:44px;border:2px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-d)}
+  .btn-secondary{background:#fff;color:var(--primary-d);border-color:var(--primary)}
+  .btn-secondary:hover{background:var(--primary-soft)}
+  .btn-danger{background:#fff;color:var(--danger);border-color:#e3a5a8}
+  .btn-danger:hover{background:var(--danger-soft)}
+  .btn-del{background:#fff;color:var(--danger);border-color:#e3a5a8;min-height:44px}
+  .btn-del:hover:not(:disabled){background:var(--danger-soft)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .actions .push{margin-left:auto}
+  @media (max-width:560px){.actions .btn{width:100%}.actions .push{margin-left:0}}
+
+  /* Totales en el formulario */
+  .totals{margin-left:auto;max-width:380px;border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fbfcfe}
+  .totals div{display:flex;justify-content:space-between;gap:16px;padding:4px 0;font-variant-numeric:tabular-nums}
+  .totals .grand{border-top:2px solid var(--text);margin-top:6px;padding-top:8px;font-size:1.15rem;font-weight:800}
+  .col{display:flex;flex-direction:column;gap:14px;min-width:0}
+  .subsec{border-top:1px solid var(--line);padding-top:16px;margin-top:2px}
+  .subsec h3{margin:0 0 2px;font-size:1.02rem}
+  .checkline{display:flex;gap:10px;align-items:flex-start;font-size:.92rem}
+  .checkline .help{font-weight:400}
+  .checkline input{margin-top:4px;width:18px;height:18px;flex:none}
+
+  .print-status{margin:12px 0 0;padding:12px 14px;border-radius:10px;font-size:.93rem;border:1px solid}
+  .print-status.is-error{background:var(--danger-soft);border-color:#efb4b7;color:#7e1b20}
+  .print-status.is-info{background:var(--primary-soft);border-color:#b9cdf5;color:#12327a}
+  .print-status a{color:inherit;font-weight:700}
+  .summary-errors{background:var(--danger-soft);border:1px solid #efb4b7;color:#7e1b20;border-radius:12px;padding:12px 16px;margin:0 0 16px}
+  .summary-errors strong{display:block;margin-bottom:4px}
+  .summary-errors ul{margin:0;padding-left:20px}
+  .summary-errors a{color:#7e1b20}
+
+  /* Vista previa del documento */
+  .preview-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .preview-toolbar h2{margin:0}
+  .doc-wrap{background:#e9edf4;border-radius:12px;padding:14px;overflow-x:auto}
+  .doc{background:#fff;color:#111;max-width:794px;margin:0 auto;padding:36px 38px;box-shadow:0 2px 14px rgba(20,35,60,.15);font-size:14px;line-height:1.5}
+  @media (max-width:640px){.doc{padding:20px 16px;min-width:560px;font-size:13px}.doc-wrap{padding:8px}}
+  .doc-head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-bottom:3px solid var(--primary);padding-bottom:16px;margin-bottom:18px}
+  .doc-brand{font-size:1.45em;font-weight:800;color:var(--primary-d);line-height:1.2}
+  .doc-from div,.doc-client div{overflow-wrap:anywhere}
+  .doc-meta{text-align:right;min-width:200px}
+  .doc-title{font-size:1.6em;font-weight:800;letter-spacing:.06em;color:#111}
+  .doc-meta dl{margin:6px 0 0;display:grid;grid-template-columns:auto auto;gap:2px 12px;justify-content:end}
+  .doc-meta dt{color:#555;text-align:right}
+  .doc-meta dd{margin:0;font-weight:600;text-align:right}
+  .doc-label{font-size:.78em;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#555;margin:0 0 4px}
+  .doc-client{margin-bottom:20px;padding:12px 14px;background:#f5f8fe;border-radius:8px}
+  .doc table{width:100%;border-collapse:collapse;margin-bottom:14px}
+  .doc th{background:var(--primary-soft);color:#12327a;text-align:left;font-size:.85em;padding:8px 10px}
+  .doc td{padding:9px 10px;border-bottom:1px solid #e3e8f0;vertical-align:top}
+  .doc .num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .doc .desc{white-space:pre-wrap;overflow-wrap:anywhere}
+  .doc tr{break-inside:avoid}
+  .doc thead{display:table-header-group}
+  .doc-totals{margin-left:auto;width:min(340px,100%);break-inside:avoid}
+  .doc-totals div{display:flex;justify-content:space-between;gap:16px;padding:4px 10px;font-variant-numeric:tabular-nums}
+  .doc-totals .grand{background:var(--primary);color:#fff;font-weight:800;font-size:1.1em;margin-top:6px;padding:9px 10px;border-radius:6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .doc-note{font-size:.85em;color:#444;text-align:right;margin:6px 0 0}
+  .doc-notes{margin-top:22px;break-inside:avoid}
+  .doc-notes p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+  .ph{color:#9aa4b5;font-style:italic}
+  .doc-empty{text-align:center;color:#8893a5;font-style:italic}
+
+  /* Contenido SEO */
+  .content h2{font-size:1.5rem;margin:0 0 10px;letter-spacing:-.01em}
+  .content h3{font-size:1.08rem;margin:18px 0 4px}
+  .content p{margin:0 0 12px}
+  .content ol,.content ul{padding-left:22px;margin:0 0 12px}
+  .content li{margin-bottom:6px}
+  .features{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));padding:0;list-style:none}
+  .features li{background:#f8faff;border:1px solid var(--line);border-radius:12px;padding:14px;margin:0}
+  .features strong{display:block;margin-bottom:2px}
+  details{border:1px solid var(--line);border-radius:10px;padding:0 14px;margin-bottom:10px;background:#fff}
+  summary{cursor:pointer;font-weight:700;padding:12px 0}
+  details p{margin:0 0 12px;color:#333}
+  .disclaimer{font-size:.9rem;color:var(--muted);background:#f8faff;border-left:4px solid var(--primary);padding:10px 14px;border-radius:6px}
+
+  /* Espacio publicitario futuro: oculto por defecto y siempre fuera del formulario */
+  .ad-slot{margin:18px 0;padding:10px;border:1px dashed #c5cedc;border-radius:10px;text-align:center;min-height:90px;max-height:300px;overflow:hidden;position:static}
+  .ad-slot small{display:block;color:var(--muted);font-size:.72rem;margin-bottom:4px}
+
+  .site-footer{margin-top:30px;padding:24px 0 40px;border-top:1px solid var(--line);background:#fff;color:var(--muted);font-size:.9rem}
+
+  dialog{border:0;border-radius:14px;padding:22px;max-width:420px;width:calc(100% - 32px);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+  dialog::backdrop{background:rgba(15,25,45,.5)}
+  dialog h2{margin:0 0 8px;font-size:1.2rem}
+  dialog form{margin:0}
+  dialog .actions{justify-content:flex-end;margin-top:16px}
+
+  /* Impresión: solo se imprime el documento */
+  @page{size:A4;margin:14mm}
+  @media print{
+    html,body{background:#fff!important}
+    .no-print,.site-header,.site-footer,.hero,.skip{display:none!important}
+    .container{max-width:none;padding:0}
+    #vista-previa{margin:0;padding:0;border:0;box-shadow:none;background:none}
+    .preview-toolbar,.preview-aviso,.print-status{display:none!important}
+    .doc-wrap{background:none;padding:0;overflow:visible}
+    .doc{box-shadow:none;max-width:none;min-width:0;padding:0;font-size:12pt}
+    .ph,.doc-empty{display:none!important}
+    .doc-head{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .doc th,.doc-client{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#herramienta">Ir a la herramienta</a>
+
+<header class="site-header no-print">
+  <div class="container">
+    <a class="logo" href="#" aria-label="PresupuestoFácil, inicio"><span class="logo-mark" aria-hidden="true"></span><span>Presupuesto<b>Fácil</b></span></a>
+    <nav class="nav" aria-label="Secciones de la página">
+      <a href="#herramienta">Herramienta</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#funciones">Funciones</a>
+      <a href="#faq">Preguntas frecuentes</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero no-print">
+    <div class="container">
+      <h1>Crea tu presupuesto online gratis y guárdalo en PDF</h1>
+      <p>Una herramienta pensada para autónomos y pequeños negocios en España. Rellena tus datos y los del cliente, añade los servicios, elige el IVA y la retención de IRPF si procede, y obtén un documento claro, listo para imprimir o guardar en PDF.</p>
+      <ul class="badges">
+        <li>Gratis</li>
+        <li>Sin registro</li>
+        <li>Tus datos se quedan en tu navegador</li>
+      </ul>
+    </div>
+  </section>
+
+  <noscript>
+    <div class="container"><div class="card"><strong>Esta herramienta necesita JavaScript.</strong> Actívalo en tu navegador para poder crear el presupuesto.</div></div>
+  </noscript>
+
+  <div class="container">
+
+    <!-- ===================== HERRAMIENTA ===================== -->
+    <section id="herramienta" class="no-print" aria-labelledby="t-herramienta">
+      <h2 class="sr-only" id="t-herramienta">Formulario del presupuesto</h2>
+
+      <div id="resumen" class="summary-errors" role="alert" tabindex="-1" hidden></div>
+
+      <form id="form" novalidate autocomplete="off">
+
+        <div class="card">
+          <h2><span class="step">1</span>Tus datos</h2>
+          <p class="hint">Aparecerán en la cabecera del presupuesto.</p>
+          <div class="grid c2">
+            <div class="f"><label for="pNombreComercial">Nombre comercial</label>
+              <input id="pNombreComercial" type="text" maxlength="100" placeholder="Ej.: Reformas Marta"></div>
+            <div class="f"><label for="pRazon">Nombre o razón social</label>
+              <input id="pRazon" type="text" maxlength="100" placeholder="Ej.: Marta López García"></div>
+            <div class="f span2"><label for="pDireccion">Dirección</label>
+              <input id="pDireccion" type="text" maxlength="200" placeholder="Calle, número, código postal y localidad"></div>
+            <div class="f"><label for="pEmail">Correo electrónico</label>
+              <input id="pEmail" type="email" maxlength="100" inputmode="email" placeholder="correo@ejemplo.es"></div>
+            <div class="f"><label for="pTel">Teléfono</label>
+              <input id="pTel" type="tel" maxlength="30" placeholder="600 000 000"></div>
+            <div class="f"><label for="pNif">NIF/CIF <span class="opt">(opcional)</span></label>
+              <input id="pNif" type="text" maxlength="20" placeholder="Si lo deseas, indícalo aquí"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">2</span>Datos del cliente</h2>
+          <p class="hint">Persona o empresa a la que va dirigido el presupuesto.</p>
+          <div class="grid c2">
+            <div class="f"><label for="cNombre">Nombre o razón social</label>
+              <input id="cNombre" type="text" maxlength="100" placeholder="Ej.: Comunidad de Propietarios Olmo 12"></div>
+            <div class="f"><label for="cNif">NIF/CIF <span class="opt">(opcional)</span></label>
+              <input id="cNif" type="text" maxlength="20"></div>
+            <div class="f span2"><label for="cDireccion">Dirección</label>
+              <input id="cDireccion" type="text" maxlength="200"></div>
+            <div class="f"><label for="cEmail">Correo electrónico</label>
+              <input id="cEmail" type="email" maxlength="100" inputmode="email"></div>
+            <div class="f"><label for="cTel">Teléfono</label>
+              <input id="cTel" type="tel" maxlength="30"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">3</span>Datos del presupuesto</h2>
+          <div class="grid c3">
+            <div class="f"><label for="dNumero">Número de presupuesto</label>
+              <input id="dNumero" type="text" maxlength="30"></div>
+            <div class="f"><label for="dFecha">Fecha de emisión</label>
+              <input id="dFecha" type="date"></div>
+            <div class="f"><label for="dValidez">Válido hasta</label>
+              <input id="dValidez" type="date"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">4</span>Servicios o productos</h2>
+          <p class="hint">Añade una línea por cada concepto. Para decimales usa la coma (por ejemplo, 2,5). Las líneas sin descripción ni precio se ignoran.</p>
+          <div class="lines-head" aria-hidden="true">
+            <span>Descripción</span><span>Cantidad</span><span>Precio unitario</span><span>Importe</span><span></span>
+          </div>
+          <div id="lineas"></div>
+          <p class="err" id="err-lineas" role="alert"></p>
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="btnAdd">+ Añadir línea</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">5</span>Descuento e IVA</h2>
+          <p class="hint">Los totales se calculan automáticamente.</p>
+          <div class="grid c2">
+            <div class="f">
+              <label for="dtoValor">Descuento <span class="opt">(opcional)</span></label>
+              <div style="display:grid;grid-template-columns:1fr 150px;gap:8px">
+                <div class="f"><input id="dtoValor" type="text" inputmode="decimal" placeholder="0" aria-label="Valor del descuento"></div>
+                <select id="dtoTipo" aria-label="Tipo de descuento">
+                  <option value="pct">% (porcentaje)</option>
+                  <option value="eur">€ (importe fijo)</option>
+                </select>
+              </div>
+            </div>
+            <div class="col">
+              <div class="f">
+                <label for="ivaTipo">Tipo de IVA</label>
+                <select id="ivaTipo">
+                  <option value="21">21 % (tipo general)</option>
+                  <option value="10">10 % (tipo reducido)</option>
+                  <option value="4">4 % (tipo superreducido)</option>
+                  <option value="0">0 % (sin IVA: exento o no sujeto)</option>
+                  <option value="otro">Otro porcentaje…</option>
+                </select>
+                <p class="help">El tipo correcto depende de tu actividad y de la operación. Comprueba cuál te corresponde.</p>
+              </div>
+              <div class="f" id="ivaOtroWrap" hidden>
+                <label for="ivaOtro">Otro porcentaje de IVA (%)</label>
+                <input id="ivaOtro" type="text" inputmode="decimal" placeholder="Ej.: 7">
+              </div>
+            </div>
+            <div class="span2 subsec">
+              <h3>Retención de IRPF <span class="opt">(opcional)</span></h3>
+              <p class="help" style="margin-bottom:12px">Se calcula sobre la base imponible (sin IVA) y se resta del total que paga el cliente. Por defecto no se aplica ninguna.</p>
+              <div class="grid c2">
+                <div class="f">
+                  <label for="irpfTipo">Tipo de retención</label>
+                  <select id="irpfTipo">
+                    <option value="0">Sin retención</option>
+                    <option value="15">15 % (profesionales, tipo general)</option>
+                    <option value="7">7 % (profesionales en inicio de actividad)</option>
+                    <option value="2">2 % (actividades agrícolas, ganaderas y forestales)</option>
+                    <option value="1">1 % (algunos casos específicos, p. ej. módulos)</option>
+                    <option value="otro">Otro porcentaje…</option>
+                  </select>
+                </div>
+                <div class="f" id="irpfOtroWrap" hidden>
+                  <label for="irpfOtro">Otro porcentaje de retención (%)</label>
+                  <input id="irpfOtro" type="text" inputmode="decimal" placeholder="Ej.: 15">
+                </div>
+              </div>
+              <p class="help" style="margin-top:10px">Suele aplicarse cuando eres profesional (epígrafes del IAE de las secciones 2.ª o 3.ª) y facturas a una empresa o a otro profesional, pero no cuando el cliente es un particular. El 7 % exige cumplir unos requisitos (año de alta y los dos siguientes, sin haber ejercido actividad profesional el año anterior) y comunicárselo al cliente. Confirma tu caso con tu gestor o con la Agencia Tributaria.</p>
+            </div>
+            <div class="f span2">
+              <label for="ivaNota">Nota sobre el IVA <span class="opt">(opcional)</span></label>
+              <input id="ivaNota" type="text" maxlength="200" placeholder="Ej.: texto que quieras mostrar bajo los totales">
+            </div>
+          </div>
+
+          <div class="totals" style="margin-top:18px" aria-live="polite">
+            <div><span>Subtotal</span><span id="tSubtotal">0,00 €</span></div>
+            <div><span>Descuento</span><span id="tDescuento">0,00 €</span></div>
+            <div><span>Base imponible</span><span id="tBase">0,00 €</span></div>
+            <div><span id="tIvaLabel">IVA (21 %)</span><span id="tIva">0,00 €</span></div>
+            <div id="rowPre" hidden><span>Total con IVA</span><span id="tPre">0,00 €</span></div>
+            <div id="rowIrpf" hidden><span id="tIrpfLabel">Retención IRPF (15 %)</span><span id="tIrpf">0,00 €</span></div>
+            <div class="grand"><span id="tTotalLabel">Total</span><span id="tTotal">0,00 €</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="step">6</span>Observaciones y condiciones</h2>
+          <p class="hint">Forma de pago, plazos de ejecución, qué incluye o no incluye el presupuesto, etc.</p>
+          <div class="f">
+            <label for="observaciones" class="sr-only">Observaciones y condiciones</label>
+            <textarea id="observaciones" rows="5" maxlength="2000" placeholder="Ej.: Forma de pago acordada, plazo de entrega estimado, trabajos no incluidos…"></textarea>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="actions">
+            <button type="button" class="btn btn-secondary" id="btnVista">Ver vista previa</button>
+            <button type="button" class="btn btn-primary" id="btnImprimir">Imprimir / Guardar PDF</button>
+            <button type="button" class="btn btn-danger push" id="btnLimpiar">Limpiar formulario</button>
+          </div>
+          <div class="print-status" data-status role="alert" hidden></div>
+          <hr style="border:0;border-top:1px solid var(--line);margin:18px 0 14px">
+          <label class="checkline" for="chkGuardar">
+            <input type="checkbox" id="chkGuardar">
+            <span><strong>Recordar mis datos en este navegador (opcional).</strong><br>
+              <span class="help">Se guarda un borrador solo en este dispositivo, nunca se envía a ningún servidor. No lo actives en ordenadores compartidos. «Limpiar formulario» lo borra.</span></span>
+          </label>
+        </div>
+      </form>
+    </section>
+
+    <!-- ===================== VISTA PREVIA ===================== -->
+    <section id="vista-previa" class="card" aria-labelledby="t-vista">
+      <div class="preview-toolbar">
+        <h2 id="t-vista">Vista previa del documento</h2>
+        <div class="actions" style="margin:0">
+          <a class="btn btn-secondary" href="#herramienta">Volver al formulario</a>
+          <button type="button" class="btn btn-primary" id="btnImprimir2">Imprimir / Guardar PDF</button>
+        </div>
+      </div>
+      <div class="print-status" data-status role="alert" hidden></div>
+      <p class="hint preview-aviso" style="margin-top:12px">Así se imprimirá. En la ventana de impresión de Chrome elige «Guardar como PDF» en el destino. Se actualiza mientras escribes. En el móvil, desliza el documento hacia los lados para verlo entero.</p>
+      <div class="doc-wrap">
+        <article class="doc" id="documento" aria-label="Presupuesto"></article>
+      </div>
+    </section>
+
+    <!--
+      ESPACIO PUBLICITARIO FUTURO
+      Está oculto (atributo "hidden") y no contiene ningún anuncio ni código publicitario.
+      Se sitúa fuera del formulario y de los botones, en el flujo normal de la página
+      (sin posición fija ni superpuesta), y no se imprime.
+      Cuando exista un acuerdo publicitario real, quita el atributo "hidden" y coloca aquí el código
+      que facilite el proveedor, respetando la normativa de cookies y consentimiento.
+    -->
+    <aside id="espacio-publicitario" class="ad-slot no-print" aria-label="Espacio reservado para publicidad" hidden>
+      <small>Publicidad</small>
+    </aside>
+
+    <!-- ===================== CONTENIDO ===================== -->
+    <article class="content no-print">
+      <section id="como-funciona" class="card">
+        <h2>Cómo crear un presupuesto paso a paso</h2>
+        <p>Un presupuesto es la propuesta que entregas a un cliente antes de empezar un trabajo: explica qué vas a hacer, cuánto costará y en qué condiciones. Cuanto más claro sea, menos malentendidos habrá después. Con PresupuestoFácil el proceso se resume en cuatro pasos.</p>
+        <ol>
+          <li><strong>Completa los datos.</strong> Indica quién emite el presupuesto y a quién va dirigido. Añade un número propio y las fechas de emisión y de validez.</li>
+          <li><strong>Describe el trabajo.</strong> Añade una línea por cada servicio o producto, con su cantidad y precio unitario. Cuanto más concreta sea la descripción, mejor entenderá el cliente lo que incluye.</li>
+          <li><strong>Revisa los importes.</strong> Aplica un descuento si procede, elige el tipo de IVA y, si te corresponde, una retención de IRPF. La herramienta calcula subtotal, base imponible, IVA, retención y total.</li>
+          <li><strong>Previsualiza y guarda.</strong> Comprueba el documento y pulsa «Imprimir / Guardar PDF» para obtener el archivo o una copia en papel.</li>
+        </ol>
+        <h3>Qué conviene incluir siempre</h3>
+        <p>Como orientación general, un buen presupuesto identifica a las dos partes, detalla los conceptos con sus precios, indica los impuestos, señala hasta cuándo es válido y recoge las condiciones: forma de pago, plazos y aquello que queda fuera del encargo. Para ello dispones del campo de observaciones.</p>
+      </section>
+
+      <section id="funciones" class="card">
+        <h2>Funciones de PresupuestoFácil</h2>
+        <ul class="features">
+          <li><strong>Líneas ilimitadas</strong>Añade y elimina conceptos cuando lo necesites.</li>
+          <li><strong>Cálculo automático</strong>Subtotal, descuento, base imponible, IVA y total al instante.</li>
+          <li><strong>IVA configurable</strong>Elige un tipo habitual o escribe otro porcentaje, incluido el 0 %.</li>
+          <li><strong>Retención de IRPF</strong>Opcional: 15 %, 7 % u otro porcentaje, calculada sobre la base imponible y restada del total.</li>
+          <li><strong>Comprobación de datos</strong>Avisa si hay cantidades o precios negativos o que no son números.</li>
+          <li><strong>Formato en euros</strong>Importes con el formato habitual en España, por ejemplo 1.234,50 €.</li>
+          <li><strong>Vista previa e impresión</strong>Ve el resultado antes de imprimir o guardarlo en PDF.</li>
+          <li><strong>Privacidad</strong>Los datos se procesan en tu navegador. Sin registro, analítica ni cookies publicitarias.</li>
+          <li><strong>Borrador opcional</strong>Si quieres, guarda tus datos en este dispositivo para la próxima vez.</li>
+        </ul>
+        <p class="disclaimer">PresupuestoFácil es una herramienta de ayuda para preparar documentos. No ofrece asesoramiento fiscal ni legal y no garantiza que el resultado cumpla todos los requisitos que puedan afectar a tu actividad. Revisa el contenido antes de enviarlo y, ante dudas, consulta con un profesional.</p>
+      </section>
+
+      <section id="faq" class="card">
+        <h2>Preguntas frecuentes</h2>
+        <details><summary>¿PresupuestoFácil es gratis?</summary>
+          <p>Sí. La herramienta es gratuita y no te pide registro ni inicio de sesión.</p></details>
+        <details><summary>¿Se envían mis datos a algún servidor?</summary>
+          <p>No. Todo se calcula y se muestra en tu navegador. Esta versión no incluye analítica, seguimiento ni cookies publicitarias.</p></details>
+        <details><summary>¿Cómo guardo el presupuesto en PDF?</summary>
+          <p>Pulsa «Imprimir / Guardar PDF». En la ventana de impresión del navegador elige «Guardar como PDF» como destino y confirma. Si lo prefieres, también puedes imprimirlo en papel.</p></details>
+        <details><summary>¿Qué tipo de IVA debo elegir?</summary>
+          <p>Depende de tu actividad y de la operación concreta. Habitualmente se usan los tipos del 21 %, 10 % y 4 %, pero existen operaciones exentas o no sujetas y territorios con otros impuestos indirectos. Por eso la herramienta no decide por ti: elige uno de la lista o escribe otro porcentaje. Consulta con tu gestor o con la Agencia Tributaria si tienes dudas.</p></details>
+        <details><summary>¿Cómo funciona la retención de IRPF?</summary>
+          <p>Es opcional y empieza en «Sin retención». Si eliges un porcentaje, se calcula sobre la base imponible (antes del IVA) y se resta del total, de modo que el IVA se calcula sobre la base completa. Por ejemplo, con una base de 1.000 €, IVA del 21 % y retención del 15 %, el total a pagar es 1.060 € (1.000 + 210 − 150).</p></details>
+        <details><summary>¿Qué retención de IRPF me corresponde?</summary>
+          <p>Depende de tu actividad y de quién sea tu cliente. De forma general, los profesionales que facturan a empresas u otros profesionales aplican el 15 %, o el 7 % durante el año de alta y los dos siguientes si cumplen los requisitos. Normalmente no se aplica a clientes particulares ni a actividades empresariales en estimación directa. Existen otros casos, como actividades agrícolas o ganaderas. La herramienta no decide por ti: confirma tu caso con tu gestor o con la Agencia Tributaria.</p></details>
+        <details><summary>¿Un presupuesto es lo mismo que una factura?</summary>
+          <p>No. El presupuesto es una oferta previa al trabajo; la factura se emite después y tiene sus propios requisitos. Esta herramienta crea presupuestos.</p></details>
+        <details><summary>¿Puedo guardar mis datos para la próxima vez?</summary>
+          <p>Sí, de forma opcional. Al activar «Recordar mis datos en este navegador» se guarda un borrador en este dispositivo. No lo actives en ordenadores compartidos y recuerda que «Limpiar formulario» lo elimina.</p></details>
+        <details><summary>¿Por qué no me deja imprimir?</summary>
+          <p>Antes de imprimir se comprueba que haya al menos un nombre de emisor, un cliente y una línea con descripción, cantidad y precio válidos, y que no haya valores negativos ni textos en lugar de números. Un aviso en rojo te indica qué corregir.</p></details>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer class="site-footer no-print">
+  <div class="container">
+    <strong>PresupuestoFácil</strong> · Herramienta gratuita para preparar presupuestos. Tus datos permanecen en tu navegador y no se envían a ningún servidor.
+  </div>
+</footer>
+
+<dialog id="dlgLimpiar" aria-labelledby="dlgTitulo">
+  <form method="dialog">
+    <h2 id="dlgTitulo">¿Limpiar el formulario?</h2>
+    <p>Se borrarán todos los datos del presupuesto y el borrador guardado en este navegador, si lo hubiera. Esta acción no se puede deshacer.</p>
+    <div class="actions">
+      <button class="btn btn-secondary" value="cancel" id="dlgCancelar">Cancelar</button>
+      <button class="btn btn-danger" value="ok" id="dlgConfirmar">Sí, limpiar todo</button>
+    </div>
+  </form>
+</dialog>
+
+<script>
+(function () {
+  'use strict';
+
+  var STORAGE_KEY = 'presupuestofacil:borrador:v1';
+  var FIELDS = ['pNombreComercial','pRazon','pDireccion','pEmail','pTel','pNif',
+                'cNombre','cNif','cDireccion','cEmail','cTel',
+                'dNumero','dFecha','dValidez','dtoValor','dtoTipo','ivaTipo','ivaOtro','irpfTipo','irpfOtro','ivaNota','observaciones'];
+  var MAX_QTY = 1000000, MAX_PRICE = 1000000000;
+
+  function $(id) { return document.getElementById(id); }
+
+  var lines = [];      // [{id, desc, qty, price}] (textos tal y como los escribe el usuario)
+  var nextId = 1;
+  var strict = false;  // pasa a true tras el primer intento de imprimir
+  var saveTimer = null;
+  var originalTitle = document.title;
+
+  /* ---------- Formato ---------- */
+  var moneyFmt = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', useGrouping: 'always' });
+  var qtyFmt = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 3, useGrouping: 'always' });
+  var pctFmt = new Intl.NumberFormat('es-ES', { maximumFractionDigits: 2 });
+  function money(cents) { return moneyFmt.format(cents / 100); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function fmtDate(iso) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+    if (!m) return '';
+    var d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]));
+    return d.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+  function isoDate(d) {
+    function p(n) { return (n < 10 ? '0' : '') + n; }
+    return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate());
+  }
+
+  /* ---------- Lectura segura de números (admite 1,5 / 1.5 / 1.234,56) ---------- */
+  function parseNum(raw) {
+    var s = String(raw == null ? '' : raw).replace(/[\s\u00a0€]/g, '');
+    if (s === '') return { empty: true };
+    if (s.charAt(0) === '-') return { error: 'neg' };
+    if (s.charAt(0) === '+') s = s.slice(1);
+    var n;
+    if (/^\d+$/.test(s)) n = Number(s);
+    else if (/^\d{1,3}(\.\d{3})*,\d+$/.test(s) || /^\d+,\d+$/.test(s)) n = Number(s.replace(/\./g, '').replace(',', '.'));
+    else if (/^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) n = Number(s.replace(/\./g, ''));
+    else if (/^\d+\.\d+$/.test(s)) n = Number(s);
+    else return { error: 'inv' };
+    if (!isFinite(n)) return { error: 'inv' };
+    return { value: n };
+  }
+  function round(x) { return Math.round(parseFloat(x.toPrecision(12))); }
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  /* ---------- Cálculo y validación ---------- */
+  // Devuelve los importes (en céntimos, sin errores de redondeo) y la lista de errores.
+  function compute(v) {
+    var errors = [];
+    function err(el, label, msg, strictOnly, box) {
+      errors.push({ el: el, label: label, msg: msg, strictOnly: !!strictOnly, box: box });
+    }
+    var res = { lines: [], errors: errors, subtotal: 0, discount: 0, base: 0, rate: 0, vat: 0, irpfRate: 0, irpf: 0, totalPre: 0, total: 0 };
+
+    // Líneas
+    var validCount = 0;
+    lines.forEach(function (l, i) {
+      var n = i + 1, row = rowEl(l.id), out = { id: l.id, ok: false, total: 0 };
+      res.lines.push(out);
+      var d = l.desc.trim(), q = parseNum(l.qty), p = parseNum(l.price);
+      if (d === '' && p.empty) return;            // línea vacía: se ignora
+      var qEl = row.querySelector('[data-k=qty]'), pEl = row.querySelector('[data-k=price]'), dEl = row.querySelector('[data-k=desc]');
+      var bad = false, L = 'Línea ' + n + ' – ';
+      if (d === '') { err(dEl, L + 'Descripción', 'Añade una descripción.', true); bad = true; }
+      if (q.empty) { err(qEl, L + 'Cantidad', 'Indica una cantidad.', true); bad = true; }
+      else if (q.error === 'neg') { err(qEl, L + 'Cantidad', 'No se admiten cantidades negativas.'); bad = true; }
+      else if (q.error) { err(qEl, L + 'Cantidad', 'Introduce un número válido (por ejemplo, 2 o 1,5).'); bad = true; }
+      else if (q.value <= 0) { err(qEl, L + 'Cantidad', 'La cantidad debe ser mayor que 0.'); bad = true; }
+      else if (q.value > MAX_QTY) { err(qEl, L + 'Cantidad', 'La cantidad es demasiado grande.'); bad = true; }
+      if (p.empty) { err(pEl, L + 'Precio', 'Indica un precio (puede ser 0).', true); bad = true; }
+      else if (p.error === 'neg') { err(pEl, L + 'Precio', 'No se admiten precios negativos.'); bad = true; }
+      else if (p.error) { err(pEl, L + 'Precio', 'Introduce un importe válido (por ejemplo, 45 o 12,50).'); bad = true; }
+      else if (p.value > MAX_PRICE) { err(pEl, L + 'Precio', 'El precio es demasiado grande.'); bad = true; }
+      if (bad) return;
+      var priceCents = round(p.value * 100);
+      out.ok = true;
+      out.desc = d; out.qty = q.value; out.price = priceCents;
+      out.total = round(q.value * priceCents);
+      res.subtotal += out.total;
+      validCount++;
+    });
+    if (validCount === 0) {
+      err($('btnAdd'), 'Servicios o productos', 'Añade al menos una línea con descripción, cantidad y precio.', true, 'err-lineas');
+    }
+
+    // Descuento
+    var dv = parseNum(v.dtoValor), dEl2 = $('dtoValor');
+    if (dv.error === 'neg') err(dEl2, 'Descuento', 'No se admiten descuentos negativos.');
+    else if (dv.error) err(dEl2, 'Descuento', 'Introduce un número válido.');
+    else if (!dv.empty) {
+      if (v.dtoTipo === 'pct') {
+        if (dv.value > 100) err(dEl2, 'Descuento', 'El porcentaje no puede superar 100.');
+        else res.discount = round(res.subtotal * dv.value / 100);
+      } else {
+        var cents = round(dv.value * 100);
+        if (cents > res.subtotal) err(dEl2, 'Descuento', 'El descuento no puede superar el subtotal.');
+        else res.discount = cents;
+      }
+    }
+    res.discountPct = (v.dtoTipo === 'pct' && dv.value !== undefined && res.discount > 0) ? dv.value : null;
+    res.base = res.subtotal - res.discount;
+
+    // IVA
+    if (v.ivaTipo === 'otro') {
+      var iv = parseNum(v.ivaOtro), iEl = $('ivaOtro');
+      if (iv.empty) err(iEl, 'IVA', 'Indica el porcentaje de IVA.', true);
+      else if (iv.error === 'neg') err(iEl, 'IVA', 'No se admiten porcentajes negativos.');
+      else if (iv.error) err(iEl, 'IVA', 'Introduce un número válido (por ejemplo, 7 o 7,5).');
+      else if (iv.value > 100) err(iEl, 'IVA', 'El porcentaje no puede superar 100.');
+      else res.rate = iv.value;
+    } else {
+      res.rate = Number(v.ivaTipo) || 0;
+    }
+    res.vat = round(res.base * res.rate / 100);
+
+    // Retención de IRPF: se calcula sobre la base imponible (no sobre el IVA) y se resta del total
+    if (v.irpfTipo === 'otro') {
+      var ir = parseNum(v.irpfOtro), irEl = $('irpfOtro');
+      if (ir.empty) err(irEl, 'Retención de IRPF', 'Indica el porcentaje de retención.', true);
+      else if (ir.error === 'neg') err(irEl, 'Retención de IRPF', 'No se admiten porcentajes negativos.');
+      else if (ir.error) err(irEl, 'Retención de IRPF', 'Introduce un número válido (por ejemplo, 15 o 7,5).');
+      else if (ir.value > 100) err(irEl, 'Retención de IRPF', 'El porcentaje no puede superar 100.');
+      else res.irpfRate = ir.value;
+    } else {
+      res.irpfRate = Number(v.irpfTipo) || 0;
+    }
+    res.irpf = round(res.base * res.irpfRate / 100);
+    res.totalPre = res.base + res.vat;
+    res.total = res.totalPre - res.irpf;
+
+    // Datos generales
+    if (!v.pNombreComercial.trim() && !v.pRazon.trim()) err($('pNombreComercial'), 'Tus datos', 'Indica tu nombre comercial o tu razón social.', true);
+    if (!v.cNombre.trim()) err($('cNombre'), 'Cliente', 'Indica el nombre del cliente.', true);
+    if (!v.dNumero.trim()) err($('dNumero'), 'Número de presupuesto', 'Indica un número de presupuesto.', true);
+    if (!v.dFecha) err($('dFecha'), 'Fecha de emisión', 'Indica la fecha de emisión.', true);
+    if (v.dFecha && v.dValidez && v.dValidez < v.dFecha) err($('dValidez'), 'Válido hasta', 'La fecha de validez no puede ser anterior a la de emisión.');
+    if (v.pEmail.trim() && !EMAIL_RE.test(v.pEmail.trim())) err($('pEmail'), 'Tu correo electrónico', 'Revisa el correo electrónico.', true);
+    if (v.cEmail.trim() && !EMAIL_RE.test(v.cEmail.trim())) err($('cEmail'), 'Correo del cliente', 'Revisa el correo electrónico.', true);
+    return res;
+  }
+
+  /* ---------- Mostrar errores ---------- */
+  function errBox(el) {
+    var f = el.closest('.f');
+    var box = f.querySelector(':scope > .err');
+    if (!box) {
+      box = document.createElement('p');
+      box.className = 'err';
+      box.id = 'err-' + (el.id || Math.random().toString(36).slice(2));
+      f.appendChild(box);
+    }
+    return box;
+  }
+  function applyErrors(errors) {
+    Array.prototype.forEach.call(document.querySelectorAll('.err'), function (e) { e.textContent = ''; });
+    Array.prototype.forEach.call(document.querySelectorAll('[aria-invalid]'), function (e) { e.removeAttribute('aria-invalid'); e.removeAttribute('aria-describedby'); });
+    errors.forEach(function (e) {
+      var shown = !e.strictOnly || strict || e.el.getAttribute('data-touched') === '1';
+      e.visible = shown;
+      if (!shown) return;
+      var box = e.box ? $(e.box) : errBox(e.el);
+      if (box.textContent) return; // solo el primer error de cada campo
+      box.textContent = e.msg;
+      if (e.el.tagName !== 'BUTTON') {
+        e.el.setAttribute('aria-invalid', 'true');
+        e.el.setAttribute('aria-describedby', box.id);
+      }
+    });
+  }
+  function renderSummary(errors) {
+    var box = $('resumen');
+    if (!strict || !errors.length) { box.hidden = true; box.innerHTML = ''; return; }
+    var html = '<strong>Revisa estos puntos antes de imprimir:</strong><ul>';
+    errors.forEach(function (e, i) {
+      html += '<li><a href="#" data-err="' + i + '">' + esc(e.label) + ': ' + esc(e.msg) + '</a></li>';
+    });
+    box.innerHTML = html + '</ul>';
+    box.hidden = false;
+    box._errors = errors;
+  }
+
+  /* ---------- Representación ---------- */
+  function renderTotals(c) {
+    $('tSubtotal').textContent = money(c.subtotal);
+    $('tDescuento').textContent = (c.discount > 0 ? '−' : '') + money(c.discount);
+    $('tBase').textContent = money(c.base);
+    $('tIvaLabel').textContent = 'IVA (' + pctFmt.format(c.rate) + ' %)';
+    $('tIva').textContent = money(c.vat);
+    var hasIrpf = c.irpfRate > 0;
+    $('rowPre').hidden = !hasIrpf;
+    $('rowIrpf').hidden = !hasIrpf;
+    $('tPre').textContent = money(c.totalPre);
+    $('tIrpfLabel').textContent = 'Retención IRPF (' + pctFmt.format(c.irpfRate) + ' %)';
+    $('tIrpf').textContent = '−' + money(c.irpf);
+    $('tTotalLabel').textContent = hasIrpf ? 'Total a pagar' : 'Total';
+    $('tTotal').textContent = money(c.total);
+    c.lines.forEach(function (l) {
+      var row = rowEl(l.id);
+      if (row) row.querySelector('output').textContent = l.ok ? money(l.total) : '—';
+    });
+  }
+
+  function renderDoc(v, c) {
+    function val(s, ph) { s = (s || '').trim(); return s ? esc(s) : '<span class="ph">' + esc(ph) + '</span>'; }
+    function opt(label, s) { s = (s || '').trim(); return s ? '<div>' + label + esc(s) + '</div>' : ''; }
+    var contact = [v.pEmail.trim(), v.pTel.trim()].filter(Boolean).map(esc).join(' · ');
+    var cContact = [v.cEmail.trim(), v.cTel.trim()].filter(Boolean).map(esc).join(' · ');
+    var brand = v.pNombreComercial.trim() || v.pRazon.trim();
+    var showRazon = v.pNombreComercial.trim() && v.pRazon.trim();
+
+    var h = '<div class="doc-head"><div class="doc-from">' +
+      '<div class="doc-brand">' + val(brand, 'Tu nombre comercial') + '</div>' +
+      (showRazon ? '<div>' + esc(v.pRazon.trim()) + '</div>' : '') +
+      opt('NIF/CIF: ', v.pNif) +
+      (v.pDireccion.trim() ? '<div>' + esc(v.pDireccion.trim()) + '</div>' : '') +
+      (contact ? '<div>' + contact + '</div>' : '') +
+      '</div><div class="doc-meta"><div class="doc-title">PRESUPUESTO</div><dl>' +
+      '<dt>Nº</dt><dd>' + val(v.dNumero, '—') + '</dd>' +
+      '<dt>Fecha</dt><dd>' + val(fmtDate(v.dFecha), '—') + '</dd>' +
+      (v.dValidez ? '<dt>Válido hasta</dt><dd>' + esc(fmtDate(v.dValidez)) + '</dd>' : '') +
+      '</dl></div></div>';
+
+    h += '<div class="doc-client"><p class="doc-label">Cliente</p>' +
+      '<div><strong>' + val(v.cNombre, 'Nombre del cliente') + '</strong></div>' +
+      opt('NIF/CIF: ', v.cNif) +
+      (v.cDireccion.trim() ? '<div>' + esc(v.cDireccion.trim()) + '</div>' : '') +
+      (cContact ? '<div>' + cContact + '</div>' : '') + '</div>';
+
+    h += '<table><thead><tr><th>Descripción</th><th class="num">Cantidad</th><th class="num">Precio unit.</th><th class="num">Importe</th></tr></thead><tbody>';
+    var any = false;
+    c.lines.forEach(function (l) {
+      if (!l.ok) return;
+      any = true;
+      h += '<tr><td class="desc">' + esc(l.desc) + '</td><td class="num">' + qtyFmt.format(l.qty) +
+           '</td><td class="num">' + money(l.price) + '</td><td class="num">' + money(l.total) + '</td></tr>';
+    });
+    if (!any) h += '<tr><td colspan="4" class="doc-empty">Añade líneas de servicios o productos para verlas aquí.</td></tr>';
+    h += '</tbody></table>';
+
+    h += '<div class="doc-totals">';
+    if (c.discount > 0) {
+      h += '<div><span>Subtotal</span><span>' + money(c.subtotal) + '</span></div>' +
+           '<div><span>Descuento' + (c.discountPct != null ? ' (' + pctFmt.format(c.discountPct) + ' %)' : '') + '</span><span>−' + money(c.discount) + '</span></div>';
+    }
+    h += '<div><span>Base imponible</span><span>' + money(c.base) + '</span></div>' +
+         '<div><span>IVA (' + pctFmt.format(c.rate) + ' %)</span><span>' + money(c.vat) + '</span></div>' +
+         (c.irpfRate > 0
+           ? '<div><span>Total con IVA</span><span>' + money(c.totalPre) + '</span></div>' +
+             '<div><span>Retención IRPF (' + pctFmt.format(c.irpfRate) + ' %)</span><span>−' + money(c.irpf) + '</span></div>'
+           : '') +
+         '<div class="grand"><span>' + (c.irpfRate > 0 ? 'TOTAL A PAGAR' : 'TOTAL') + '</span><span>' + money(c.total) + '</span></div></div>';
+    if (v.ivaNota.trim()) h += '<p class="doc-note">' + esc(v.ivaNota.trim()) + '</p>';
+
+    if (v.observaciones.trim()) {
+      h += '<div class="doc-notes"><p class="doc-label">Observaciones y condiciones</p><p>' + esc(v.observaciones.trim()) + '</p></div>';
+    }
+    $('documento').innerHTML = h;
+  }
+
+  /* ---------- Líneas ---------- */
+  function rowEl(id) { return document.querySelector('.line[data-id="' + id + '"]'); }
+  function buildRow(l) {
+    var el = document.createElement('div');
+    el.className = 'line';
+    el.setAttribute('data-id', l.id);
+    el.innerHTML =
+      '<div class="f f-desc"><label for="ld' + l.id + '">Descripción</label>' +
+        '<textarea id="ld' + l.id + '" rows="2" maxlength="500" data-k="desc" placeholder="Ej.: Instalación de punto de luz"></textarea></div>' +
+      '<div class="f"><label for="lq' + l.id + '">Cantidad</label>' +
+        '<input id="lq' + l.id + '" type="text" inputmode="decimal" data-k="qty" placeholder="1"></div>' +
+      '<div class="f"><label for="lp' + l.id + '">Precio unitario (€)</label>' +
+        '<input id="lp' + l.id + '" type="text" inputmode="decimal" data-k="price" placeholder="0,00"></div>' +
+      '<div class="f f-total"><span class="lbl">Importe</span><output>—</output></div>' +
+      '<button type="button" class="btn btn-del" data-act="del"><span aria-hidden="true">✕</span> <span class="t-del">Eliminar línea</span></button>';
+    el.querySelector('[data-k=desc]').value = l.desc;
+    el.querySelector('[data-k=qty]').value = l.qty;
+    el.querySelector('[data-k=price]').value = l.price;
+    return el;
+  }
+  function addLine(data, focus) {
+    var l = { id: nextId++, desc: data ? data.desc : '', qty: data ? data.qty : '1', price: data ? data.price : '' };
+    lines.push(l);
+    $('lineas').appendChild(buildRow(l));
+    refreshLineUI();
+    if (focus) rowEl(l.id).querySelector('[data-k=desc]').focus();
+    return l;
+  }
+  function removeLine(id) {
+    if (lines.length <= 1) return;
+    var idx = lines.findIndex(function (l) { return l.id === id; });
+    if (idx < 0) return;
+    lines.splice(idx, 1);
+    var row = rowEl(id);
+    if (row) row.remove();
+    refreshLineUI();
+    var target = lines[Math.min(idx, lines.length - 1)];
+    rowEl(target.id).querySelector('[data-k=desc]').focus();
+  }
+  function refreshLineUI() {
+    var rows = $('lineas').children;
+    for (var i = 0; i < rows.length; i++) {
+      var del = rows[i].querySelector('[data-act=del]');
+      del.setAttribute('aria-label', 'Eliminar línea ' + (i + 1));
+      del.title = 'Eliminar línea ' + (i + 1);
+      del.disabled = rows.length <= 1;
+    }
+  }
+
+  /* ---------- Actualización general ---------- */
+  function readVals() {
+    var v = {};
+    FIELDS.forEach(function (f) { v[f] = $(f).value; });
+    return v;
+  }
+  function update() {
+    $('ivaOtroWrap').hidden = $('ivaTipo').value !== 'otro';
+    $('irpfOtroWrap').hidden = $('irpfTipo').value !== 'otro';
+    var v = readVals();
+    var c = compute(v);
+    applyErrors(c.errors);
+    renderTotals(c);
+    renderDoc(v, c);
+    renderSummary(strict ? c.errors : []);
+    return c;
+  }
+
+  /* ---------- Borrador local (opcional) ---------- */
+  function saveNow() {
+    try {
+      if (!$('chkGuardar').checked) { localStorage.removeItem(STORAGE_KEY); return; }
+      var data = { fields: readVals(), lines: lines.map(function (l) { return { desc: l.desc, qty: l.qty, price: l.price }; }) };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) { /* almacenamiento no disponible: se ignora */ }
+  }
+  function scheduleSave() { clearTimeout(saveTimer); saveTimer = setTimeout(saveNow, 300); }
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return false;
+      var data = JSON.parse(raw);
+      FIELDS.forEach(function (f) { if (data.fields && typeof data.fields[f] === 'string') $(f).value = data.fields[f]; });
+      if (Array.isArray(data.lines)) {
+        data.lines.forEach(function (l) {
+          addLine({ desc: String(l.desc || ''), qty: String(l.qty || ''), price: String(l.price || '') }, false);
+        });
+      }
+      $('chkGuardar').checked = true;
+      return true;
+    } catch (e) { return false; }
+  }
+
+  /* ---------- Valores iniciales / limpiar ---------- */
+  function setDefaults() {
+    FIELDS.forEach(function (f) { $(f).value = ''; $(f).removeAttribute('data-touched'); });
+    var today = new Date(), valid = new Date();
+    valid.setDate(valid.getDate() + 30);
+    $('dNumero').value = today.getFullYear() + '-001';
+    $('dFecha').value = isoDate(today);
+    $('dValidez').value = isoDate(valid);
+    $('dtoTipo').value = 'pct';
+    $('ivaTipo').value = '21';
+    $('irpfTipo').value = '0';
+  }
+  function resetAll() {
+    setDefaults();
+    lines = []; $('lineas').innerHTML = '';
+    addLine(null, false);
+    strict = false;
+    hideStatus();
+    $('chkGuardar').checked = false;
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    update();
+    $('pNombreComercial').focus();
+  }
+
+  /* ---------- Imprimir ---------- */
+  var statusTimer = null;
+  function showStatus(html, kind, ms) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-status]'), function (el) {
+      el.innerHTML = html;
+      el.className = 'print-status is-' + kind;
+      el.hidden = false;
+    });
+    clearTimeout(statusTimer);
+    if (ms) statusTimer = setTimeout(hideStatus, ms);
+  }
+  function hideStatus() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-status]'), function (el) { el.hidden = true; el.innerHTML = ''; });
+  }
+  function inFrame() { try { return window.self !== window.top; } catch (e) { return true; } }
+
+  function printDoc() {
+    strict = true;
+    var c = update();
+    if (c.errors.length) {
+      var n = c.errors.length;
+      showStatus('<strong>Todavía no se puede imprimir.</strong> Falta completar ' + n + (n === 1 ? ' dato' : ' datos') +
+        ': ' + c.errors.slice(0, 3).map(function (e) { return esc(e.label); }).join(', ') + (n > 3 ? '…' : '') +
+        '. <a href="#resumen" id="irAvisos">Ver qué falta</a>', 'error', 0);
+      return;
+    }
+    hideStatus();
+    var v = readVals();
+    document.title = 'Presupuesto ' + v.dNumero.trim() + (v.cNombre.trim() ? ' - ' + v.cNombre.trim() : '');
+    var msg = 'Se está abriendo la ventana de impresión. Si no aparece, pulsa <strong>Ctrl + P</strong> (en Mac, <strong>Cmd + P</strong>)' +
+      (inFrame() ? '. <strong>Parece que la página se muestra dentro de otra aplicación, que puede bloquear la impresión:</strong> descarga el archivo y ábrelo directamente con Chrome (doble clic).' : '.');
+    showStatus(msg, 'info', inFrame() ? 0 : 12000);
+    try { window.print(); } catch (e) {
+      showStatus('Tu navegador no ha podido abrir la impresión. Pulsa <strong>Ctrl + P</strong> (Cmd + P en Mac) o abre el archivo directamente con Chrome.', 'error', 0);
+    }
+    setTimeout(function () { document.title = originalTitle; }, 1000);
+  }
+  window.addEventListener('afterprint', function () { document.title = originalTitle; });
+
+  /* ---------- Eventos ---------- */
+  $('form').addEventListener('submit', function (e) { e.preventDefault(); });
+
+  $('lineas').addEventListener('input', function (e) {
+    var t = e.target, row = t.closest('.line');
+    if (!row || !t.getAttribute('data-k')) return;
+    var l = lines.find(function (x) { return x.id === Number(row.getAttribute('data-id')); });
+    if (l) l[t.getAttribute('data-k')] = t.value;
+    update(); scheduleSave();
+  });
+  $('lineas').addEventListener('click', function (e) {
+    var b = e.target.closest('[data-act=del]');
+    if (!b) return;
+    removeLine(Number(b.closest('.line').getAttribute('data-id')));
+    update(); scheduleSave();
+  });
+  $('btnAdd').addEventListener('click', function () { addLine(null, true); update(); scheduleSave(); });
+
+  $('form').addEventListener('input', function (e) {
+    if (e.target.closest('#lineas')) return;
+    if (e.target.id === 'chkGuardar') return;
+    update(); scheduleSave();
+  });
+  $('form').addEventListener('change', function (e) {
+    if (e.target.closest('#lineas')) return;
+    if (e.target.id === 'chkGuardar') { saveNow(); return; }
+    update(); scheduleSave();
+  });
+  // Marcar campos "tocados" para mostrar sus avisos al salir de ellos
+  $('form').addEventListener('focusout', function (e) {
+    var t = e.target;
+    if (t && t.matches && t.matches('input,textarea,select')) {
+      t.setAttribute('data-touched', '1');
+      update();
+    }
+  });
+
+  $('btnVista').addEventListener('click', function () {
+    update();
+    $('vista-previa').scrollIntoView({ block: 'start' });
+  });
+  $('btnImprimir').addEventListener('click', printDoc);
+  $('btnImprimir2').addEventListener('click', printDoc);
+
+  document.addEventListener('click', function (e) {
+    if (e.target.id === 'irAvisos') {
+      e.preventDefault();
+      var box = $('resumen');
+      box.scrollIntoView({ block: 'start' });
+      box.focus();
+    }
+  });
+  $('resumen').addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-err]');
+    if (!a) return;
+    e.preventDefault();
+    var er = $('resumen')._errors[Number(a.getAttribute('data-err'))];
+    if (er && er.el) { er.el.scrollIntoView({ block: 'center' }); er.el.focus(); }
+  });
+
+  var dlg = $('dlgLimpiar');
+  $('btnLimpiar').addEventListener('click', function () {
+    if (typeof dlg.showModal === 'function') dlg.showModal();
+    else if (window.confirm('¿Limpiar el formulario? Se borrarán todos los datos.')) resetAll();
+  });
+  dlg.addEventListener('close', function () {
+    if (dlg.returnValue === 'ok') resetAll();
+    dlg.returnValue = '';
+  });
+
+  /* ---------- Inicio ---------- */
+  setDefaults();
+  if (!loadDraft() || lines.length === 0) { if (lines.length === 0) addLine(null, false); }
+  refreshLineUI();
+  update();
+})();
+</script>
+</body>
+</html>
